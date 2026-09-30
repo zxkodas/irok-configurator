@@ -18,12 +18,13 @@ A launcher for the [Irok web software](https://hid.irok.cn).
 
 ## What it does
 
-Like most peripheral brands now, Irok ships a single web-based option instead
-of an installable program. That saves resources and is practical compared to an
-installer, but it costs you in the day-to-day: to adjust something you open a
-browser, find the page, connect your keyboard, and change what you want to change.
-This turns that into one shortcut on your Start menu and your Desktop, which opens
-the web driver in a window of its own. No need to open a new browser tab.
+Like most peripheral brands now, Irok ships a single web-based software option
+instead of an installable program. That saves resources and is practical compared
+to an installer, but it costs you in the day-to-day: to adjust something you open
+a browser, find the page, connect your keyboard, and change what you want to
+change. This turns that into one shortcut on your Start menu and your Desktop,
+which opens the web driver in a window of its own. No need to open a new browser
+tab.
 
 It holds no keyboard settings and never sends anything to your keyboard. Irok's
 site does all of that, and this only gets you there.

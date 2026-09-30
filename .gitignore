@@ -1,0 +1,14 @@
+# Build output - the binary is published as a GitHub Release asset, never
+# committed. Binaries in git history are permanent and bloat every clone.
+dist/
+
+# Local logs and per-machine state
+*.log
+config.txt
+
+# Editor / OS noise
+.vs/
+.vscode/
+*.user
+Thumbs.db
+desktop.ini

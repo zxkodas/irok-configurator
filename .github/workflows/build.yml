@@ -1,0 +1,52 @@
+name: build
+
+# Verifies the launcher still compiles and the produced exe actually runs.
+# Runs on every push so a broken build is caught before anyone tags a release.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        # Explicit Bypass because the runner's execution policy is not ours to
+        # assume, and the in-box csc.exe needs no other setup.
+        shell: pwsh
+        run: powershell -ExecutionPolicy Bypass -File ./build.ps1
+
+      - name: Smoke test
+        shell: pwsh
+        run: |
+          $exe = 'dist\IrokConfigurator.exe'
+          if (-not (Test-Path $exe)) { throw 'build produced no exe' }
+
+          # --help must exit 0 on a freshly built binary
+          $p = Start-Process -FilePath $exe -ArgumentList '--help' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "--help exited $($p.ExitCode)" }
+
+          # The embedded icon resource must have made it into the assembly,
+          # otherwise a fresh install has no icon to fall back on.
+          Add-Type -AssemblyName System.Reflection
+          $asm = [System.Reflection.Assembly]::ReflectionOnlyLoadFrom((Resolve-Path $exe))
+          $names = $asm.GetManifestResourceNames()
+          if ($names -notcontains 'irok.ico') { throw "irok.ico not embedded, found: $($names -join ', ')" }
+
+          Write-Host "smoke test passed"
+
+      - name: Upload exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: IrokConfigurator
+          path: dist/IrokConfigurator.exe
+          if-no-files-found: error

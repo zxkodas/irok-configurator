@@ -1,0 +1,15 @@
+# Normalise text in the repository, check out per platform.
+* text=auto
+
+# Binaries: never touch, never let git try to diff them.
+*.exe binary
+*.ico binary
+*.zip binary
+*.sha256.txt text eol=lf
+
+# PowerShell is fine either way, but CRLF is what it will see on Windows.
+*.ps1 text eol=crlf
+
+# Source: keep LF so the byte-for-byte build is the same everywhere.
+*.cs   text eol=lf
+*.yml  text eol=lf

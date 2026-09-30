@@ -69,16 +69,23 @@ it, and it stays from then on.
 
 ## What it does
 
-- Adds an entry to your Start menu and desktop
-- Opens the configurator in its own window, with no tabs and no address bar
-- Runs it in a separate browser profile, so extensions like Dark Reader can't
-  interfere with what you're looking at
-- Works with Edge, Chrome, Brave, Opera or Vivaldi, whichever you already have
+The Irok software is a web app. Reaching it means opening a browser, finding the
+page, connecting your keyboard and picking a profile. This turns that into a
+shortcut on your Start menu that opens the configurator in a window of its own.
 
-That's the whole list. There's no keyboard configuration in this app and nothing is
-ever sent to your keyboard — the configurator on Irok's site does all of that, and
-this only gets you there. It also doesn't need admin rights, doesn't leave anything
-running in the background, and doesn't collect anything about you.
+Under the hood it's a launcher and nothing more. It picks a browser you already
+have and gets out of the way. It holds no keyboard settings and never sends
+anything to your keyboard — Irok's site does that part.
+
+### Why I made it
+
+I use Firefox. The Irok software reaches the keyboard over **WebHID**, an API that
+only Chromium browsers implement, so for me it couldn't run in the browser I
+actually use. Every time I wanted to switch a profile, the routine was: open
+Chrome, navigate, change it, close it again. A few times a day, and it added up.
+
+For anyone on a compatible browser, this saves fewer clicks than it did for me.
+It exists because I wanted the thing to behave like an app instead of a detour.
 
 ## Options
 

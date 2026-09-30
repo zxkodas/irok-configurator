@@ -70,15 +70,15 @@ it, and it stays from then on.
 ## What it does
 
 - Adds an entry to your Start menu and desktop
-- Opens the configurator in its own window, no tabs and no address bar
+- Opens the configurator in its own window, with no tabs and no address bar
+- Runs it in a separate browser profile, so extensions like Dark Reader can't
+  interfere with what you're looking at
 - Works with Edge, Chrome, Brave, Opera or Vivaldi, whichever you already have
-- Runs the configurator in a separate profile, so extensions like Dark Reader don't
-  mess with the interface
-- One file, no installer, no admin rights, nothing running in the background, no
-  analytics
 
-It does nothing else. There are no keyboard settings in here, and nothing is ever
-sent to your keyboard. That all still happens on Irok's site.
+That's the whole list. There's no keyboard configuration in this app and nothing is
+ever sent to your keyboard — the configurator on Irok's site does all of that, and
+this only gets you there. It also doesn't need admin rights, doesn't leave anything
+running in the background, and doesn't collect anything about you.
 
 ## Options
 

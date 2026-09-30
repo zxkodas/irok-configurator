@@ -59,7 +59,7 @@ ROWS = [
      (1, None), (1, "left"), (1, "down"), (1, "right")],
 ]
 
-ACCENT = {"left", "down", "right"}
+ACCENT = set()
 
 
 def font(name, size):

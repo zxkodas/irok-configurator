@@ -70,8 +70,9 @@ without it necessarily being so.
 
 ## Install
 
-Download the `.zip` from the [latest release](https://github.com/zxkodas/irok-configurator/releases/latest)
-and extract it. You'll get a single file called `IrokConfigurator.exe`.
+Download `IrokConfigurator.exe` from the
+[latest release](https://github.com/zxkodas/irok-configurator/releases/latest).
+It's a single file, no installer.
 
 Double-click it. That's the whole installation. It copies itself into
 `%LOCALAPPDATA%\Programs\IrokConfigurator`, adds a Start menu entry, and opens

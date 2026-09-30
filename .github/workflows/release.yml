@@ -22,33 +22,28 @@ jobs:
         shell: pwsh
         run: powershell -ExecutionPolicy Bypass -File ./build.ps1
 
-      - name: Checksum and package
+      - name: Checksum
         shell: pwsh
         run: |
-          $version = '${{ github.ref_name }}'
           $exe = 'dist\IrokConfigurator.exe'
           $hash = (Get-FileHash $exe -Algorithm SHA256).Hash
-
           "SHA256  $hash  IrokConfigurator.exe" |
-            Out-File -FilePath "IrokConfigurator-$version.sha256.txt" -Encoding ascii
-          Add-Content -Path "IrokConfigurator-$version.sha256.txt" -Value "SHA256  $hash  IrokConfigurator-$version.zip"
-
-          Compress-Archive -Path $exe -DestinationPath "IrokConfigurator-$version.zip"
-          Write-Host "published sha256: $hash"
+            Out-File -FilePath 'IrokConfigurator.sha256.txt' -Encoding ascii
+          Write-Host "sha256: $hash"
 
       - name: Publish release
         uses: softprops/action-gh-release@v3
         with:
           files: |
-            IrokConfigurator-${{ github.ref_name }}.zip
-            IrokConfigurator-${{ github.ref_name }}.sha256.txt
+            dist/IrokConfigurator.exe
+            IrokConfigurator.sha256.txt
           fail_on_unmatched_files: true
           generate_release_notes: true
           body: |
             ## Install
 
-            Download `IrokConfigurator-${{ github.ref_name }}.zip`, extract
-            `IrokConfigurator.exe`, run it. No installer, no .NET, no admin.
+            Download `IrokConfigurator.exe` and run it. No installer, no .NET,
+            no admin rights.
 
             ### Windows will warn you
 
@@ -57,10 +52,10 @@ jobs:
             **More info → Run anyway**.
 
             That prompt is a property of being unsigned, not evidence of a
-            problem. You can check the file before running it: the SHA-256 in
-            the `.sha256.txt` asset is produced by this repository's own CI from
-            the source in the tag, so if it matches, the exe came from the code
-            you can read.
+            problem. The `.sha256.txt` asset lets you confirm the download is
+            intact, though note it is published by the same build that produced
+            the exe, so it only tells you something if you already trust this
+            repository.
 
             ### First run
 

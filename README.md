@@ -130,22 +130,15 @@ Settings live in a plain text file:
 To edit it, open the file with Notepad or any text editor, change the value, save,
 and reopen the launcher. Delete the file to go back to the defaults.
 
-## Requirements
-
-The Irok web driver is **wired only**. Plug the keyboard into a USB port on its
-own rather than through a hub, since an unpowered hub won't carry enough current
-for it. It also won't appear over Bluetooth.
-
-This is a limitation of Irok's web software, not of this launcher.
-
 ## If something goes wrong
 
 **The configurator looks broken.** Open `https://hid.irok.cn` in your normal
 browser. If it looks the same there, the problem is on Irok's side, not here.
 
-**The keyboard doesn't show up in the device list.** Unplug it, plug it back into
-a different port, and wait a few seconds. Check that the cable is seated at both
-ends, and try the port the keyboard came with.
+**The keyboard doesn't show up in the device list.** Irok's web software only
+works over USB, so it won't appear over Bluetooth. Plug it into a port of its own
+rather than a hub, since an unpowered hub won't carry enough current, and wait a
+few seconds. If it still doesn't show, try the port it came with.
 
 **Your profiles are gone.** They live in the browser that created them, and this
 launcher uses a separate one. See **First launch** for how to bring them over. If

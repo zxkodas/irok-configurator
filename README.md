@@ -18,6 +18,19 @@ A launcher for the [Irok web software](https://hid.irok.cn).
 
 Unofficial, and not made by Irok. It only opens their page.
 
+## Contents
+
+- [What it does](#what-it-does)
+  - [What it runs](#what-it-runs)
+  - [Why I made it](#why-i-made-it)
+- [Install](#install)
+- [Uninstall](#uninstall)
+- [First launch](#first-launch)
+- [Options](#options)
+- [If something goes wrong](#if-something-goes-wrong)
+- [Building](#building)
+- [Legal](#legal)
+
 ## What it does
 
 Like most peripheral brands now, Irok ships a single web-based software option

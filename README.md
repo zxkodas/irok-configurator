@@ -14,15 +14,23 @@
 
 # Irok Configurator
 
-A launcher for the [Irok web software](https://hid.irok.cn).
+Direct access to the [Irok web software](https://hid.irok.cn).
 
-Irok's driver is a web app, and it needs a browser feature Firefox doesn't have,
-so using it means switching browsers every time you want to change a setting. I
-wanted it to behave like a normal app, so I made one: it opens the configurator
-from your Start menu, in its own window.
+The Irok driver lives in a browser tab, so reaching it means opening a browser and
+finding the page. This saves you those steps: one shortcut and the configurator is
+open, in its own window.
 
-It only launches. There are no keyboard settings here and nothing is ever sent to
-your keyboard — that still all happens on Irok's site.
+It only launches. Keyboard settings aren't touched here and nothing is sent to
+your keyboard — that all still happens on Irok's site.
+
+### Why I made it
+
+I use Firefox, and the Irok software needs a browser feature that Firefox doesn't
+have, so for me every change meant opening a second browser, navigating, and
+closing it again. Switching profiles a few times a day, that adds up.
+
+That's specific to my setup. If you already have a compatible browser open and
+remember the address, this saves you a handful of clicks.
 
 ## What you get
 

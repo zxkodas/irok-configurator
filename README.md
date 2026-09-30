@@ -21,12 +21,14 @@ A launcher for the [Irok web software](https://hid.irok.cn).
 Like most peripheral brands now, Irok ships a single web-based option instead
 of an installable program. That saves resources and is practical compared to an
 installer, but it costs you in the day-to-day: to adjust something you open a
-browser, find the page, connect your keyboard, and change what you want to change
-This turns that into one shortcut on your Start menu and your Desktop, which opens the
-web driver in a window of its own. No need to open a new browser tab
+browser, find the page, connect your keyboard, and change what you want to change.
+This turns that into one shortcut on your Start menu and your Desktop, which opens
+the web driver in a window of its own. No need to open a new browser tab.
 
 It holds no keyboard settings and never sends anything to your keyboard. Irok's
 site does all of that, and this only gets you there.
+
+### What it runs
 
 There's no interface of its own. When you open it, it looks for a browser you
 already have — Edge, Chrome, Brave, Opera or Vivaldi, in that order — and asks it
@@ -42,10 +44,11 @@ looks. You can change the browser order, or turn the separate profile off, in
 I use Firefox, and sadly, Irok's software doesn't support it. It reaches your keyboard over **WebHID**, an API that
 only Chromium browsers implement, so it can't run in Firefox. Every time I wanted
 to switch a profile, the routine was: open Chrome, navigate, make the change, close
-it again. A few times a day, and it added up. I wanted it to behave like a normal app so I woudln't need to open another browser, so I made one.
+it again. A few times a day, and it added up. I wanted it to behave like a normal app so I wouldn't need to open another browser, so I made one.
 
 If you're already on a compatible browser, this saves fewer clicks than it did for
-me, but it makes you feel the software more integrated to your system (without it necesarrily being)
+me. It also makes the software feel more integrated into your system, without it
+necessarily being so.
 
 ## Install
 

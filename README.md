@@ -46,9 +46,7 @@ only Chromium browsers implement, so it can't run in Firefox. Every time I wante
 to switch a profile, the routine was: open Chrome, navigate, make the change, close
 it again. A few times a day, and it added up. I wanted it to behave like a normal app so I wouldn't need to open another browser, so I made one.
 
-If you're already on a compatible browser, this saves fewer clicks than it did for
-me. It also makes the software feel more integrated into your system, without it
-necessarily being so.
+If you're already on a compatible browser, this saves fewer clicks than it did for me, but it makes the web driver feel more integrated into your system, without it necessarily being so.
 
 ## Install
 

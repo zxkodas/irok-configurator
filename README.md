@@ -44,7 +44,7 @@ tab.
 It holds no keyboard settings and never sends anything to your keyboard. Irok's
 site does all of that, and this only gets you there.
 
-### What it runs
+## What it runs
 
 There's no interface of its own. When you open it, it looks for a browser you
 already have — Edge, Chrome, Brave, Opera or Vivaldi, in that order — and asks it
@@ -55,7 +55,7 @@ That's what keeps extensions like Dark Reader from changing how the configurator
 looks. You can change the browser order, or turn the separate profile off, in
 `config.txt`. See **Options**.
 
-### Why I made it
+## Why I made it
 
 I use Firefox, and sadly, Irok's software doesn't support it. It reaches your
 keyboard over **WebHID**, an API that only Chromium browsers implement, so it

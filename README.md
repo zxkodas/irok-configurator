@@ -23,12 +23,10 @@ of an installable program. That saves resources and is practical compared to an
 installer, but it costs you in the day-to-day: to adjust something you open a
 browser, find the page, connect your keyboard, and change what you want to change
 This turns that into one shortcut on your Start menu and your Desktop, which opens the
-configurator in a window of its own. No need to open a new browser tab
+web driver in a window of its own. No need to open a new browser tab
 
 It holds no keyboard settings and never sends anything to your keyboard. Irok's
 site does all of that, and this only gets you there.
-
-### What it runs
 
 There's no interface of its own. When you open it, it looks for a browser you
 already have — Edge, Chrome, Brave, Opera or Vivaldi, in that order — and asks it

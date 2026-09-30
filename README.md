@@ -4,11 +4,11 @@
 
 <div align="center">
 
-[![Release](https://img.shields.io/github/v/release/zxkodas/irok-configurator?style=flat-square&label=release&color=ff6b4a)](https://github.com/zxkodas/irok-configurator/releases)
+[![Release](https://img.shields.io/github/v/release/zxkodas/irok-configurator?style=flat-square&label=release&color=ff6b4a)](https://github.com/zxkodas/irok-configurator/releases/latest)
 [![CI](https://github.com/zxkodas/irok-configurator/actions/workflows/build.yml/badge.svg)](https://github.com/zxkodas/irok-configurator/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Windows 10/11](https://img.shields.io/badge/windows-10%20%7C%2011-0078d6?style=flat-square&logo=windows)](https://learn.microsoft.com/en-us/windows/release-health/windows-11-release-information)
-[![Size](https://img.shields.io/badge/size-26%20KB-success?style=flat-square)](https://github.com/zxkodas/irok-configurator/releases)
+[![Size](https://img.shields.io/badge/size-26%20KB-success?style=flat-square)](https://github.com/zxkodas/irok-configurator/releases/latest)
 
 </div>
 
@@ -19,23 +19,41 @@ clicks every time you want to change something on your keyboard.
 
 ## Install
 
-Grab `IrokConfigurator-v1.0.0.zip` from the
-[releases page](https://github.com/zxkodas/irok-configurator/releases), extract
-`IrokConfigurator.exe`, run it. Done.
+Download the `.zip` from the [latest release](https://github.com/zxkodas/irok-configurator/releases/latest)
+and extract it. You'll get a single file called `IrokConfigurator.exe`.
 
-<details>
-<summary><b>You'll see "Windows protected your PC"</b></summary>
+Double-click it. That's the whole installation. It copies itself into your user
+folder, adds a Start menu entry, and opens the configurator.
 
-The executable isn't code-signed, so SmartScreen warns about any unsigned program.
-Choose **More info → Run anyway**.
+**Windows will probably warn you.** You'll get a blue window saying *Windows
+protected your PC* and offering *More info*. Click **More info**, then **Run
+anyway**.
 
-Being unsigned is the only reason for the warning. To confirm the file matches
-this repository, the release includes a `.sha256.txt` produced by this repo's own
-build from the tagged source.
-</details>
+That warning is expected. Windows shows it for any program that isn't signed with
+a paid certificate, and this one isn't, because signing costs money that a free
+open-source tool doesn't have. Nothing is wrong with the file. If you'd rather
+check before you run it, the release also includes a `.sha256.txt` — compare it
+against the zip and you're looking at the same build that came out of this
+repository.
 
-To remove it: **Settings → Apps → Installed apps → Irok Configurator**, or run
-`IrokConfigurator.exe --uninstall`.
+If clicking the file does nothing at all, your antivirus may have removed it. Some
+security software flags unsigned executables that install themselves. Allow it, or
+use the `.exe --uninstall` trick below to clean up.
+
+## Uninstall
+
+Open Windows Settings, go to **Apps**, and find **Irok Configurator** in the list.
+On Windows 11 it's under *Installed apps*; on Windows 10 it's *Apps & features*.
+Click it and choose Uninstall.
+
+It removes the launcher, its icon, and its separate browser profile. It leaves
+your regular browser profile completely untouched.
+
+If you'd rather do it from a terminal, the launcher cleans up after itself:
+
+```
+IrokConfigurator.exe --uninstall
+```
 
 ## First launch
 

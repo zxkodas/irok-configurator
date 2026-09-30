@@ -14,64 +14,48 @@
 
 # Irok Configurator
 
-An app for accessing the [Irok web software](https://hid.irok.cn) directly,
-without going through a browser.
-
-Irok, like many brands now, offers a single web-based option instead of
-installable software. That saves resources and is practical compared to an
-installer, but it can be a nuisance: opening a browser, finding the page, choosing
-your keyboard, switching profiles. More so if you don't use a Chromium-based
-browser, as I don't — the software needs **WebHID**, which Firefox doesn't have.
-If you switch profiles several times a day, like I do, those saved clicks are
-appreciated.
-
-It only launches. Keyboard settings aren't touched here and nothing is sent to
-your keyboard — that all still happens on Irok's site.
-
-### Why I made it
-
-**Before.** Change a profile: open Chrome, find the tab, pick the keyboard, pick
-the profile, apply, then close it again. Three or four times a day, that was the
-routine.
-
-**After.** One shortcut, and the configurator is already open on the keyboard.
-
-It isn't a big saving, and I know it isn't. What I wanted was for the thing to
-feel like an app instead of a detour, because the detour was mine and not
-anyone's.
-
-## What you get
-
-- A Start menu and desktop entry
-- The configurator in its own window, with no tabs or address bar
-- Works with Edge, Chrome, Brave, Opera or Vivaldi, whichever you already have
-- A separate browser profile, so extensions like Dark Reader don't interfere with
-  the interface
-- One file, no installer, no admin rights, no background process, no analytics
+A launcher for the [Irok web software](https://hid.irok.cn). It saves you a few
+clicks every time you want to change something on your keyboard.
 
 ## Install
 
 Grab `IrokConfigurator-v1.0.0.zip` from the
 [releases page](https://github.com/zxkodas/irok-configurator/releases), extract
-`IrokConfigurator.exe`, run it.
-
-On first launch the browser shows its welcome screen, then asks you to select your
-keyboard. Dismiss the first and pick your keyboard in the second. The browser
-remembers the choice, so it won't ask again.
-
-To remove it: **Settings → Apps → Installed apps → Irok Configurator**, or run
-`IrokConfigurator.exe --uninstall`.
+`IrokConfigurator.exe`, run it. Done.
 
 <details>
 <summary><b>You'll see "Windows protected your PC"</b></summary>
 
-The executable isn't code-signed, so SmartScreen warns about any unsigned
-program. Choose **More info → Run anyway**.
+The executable isn't code-signed, so SmartScreen warns about any unsigned program.
+Choose **More info → Run anyway**.
 
 Being unsigned is the only reason for the warning. To confirm the file matches
 this repository, the release includes a `.sha256.txt` produced by this repo's own
 build from the tagged source.
 </details>
+
+To remove it: **Settings → Apps → Installed apps → Irok Configurator**, or run
+`IrokConfigurator.exe --uninstall`.
+
+## First launch
+
+You'll get the browser's welcome screen. Dismiss it.
+
+Then it asks you to pick your keyboard. Do that. The browser remembers the choice
+from then on, so you only see this once.
+
+## What it does
+
+- Adds an entry to your Start menu and desktop
+- Opens the configurator in its own window, no tabs and no address bar
+- Works with Edge, Chrome, Brave, Opera or Vivaldi, whichever you already have
+- Runs the configurator in a separate profile, so extensions like Dark Reader don't
+  mess with the interface
+- One file, no installer, no admin rights, nothing running in the background, no
+  analytics
+
+It does nothing else. There are no keyboard settings in here, and nothing is ever
+sent to your keyboard. That all still happens on Irok's site.
 
 ## Options
 
@@ -90,15 +74,14 @@ Settings live in a plain text file:
 
 ## Notes
 
-- The Irok web driver is **wired only**, and needs the keyboard on its own USB
+- The Irok web driver is **wired only**, and wants the keyboard on its own USB
   port rather than through an unpowered hub.
 - If the configurator ever looks broken, check whether the same page works in a
-  normal browser window. That distinguishes a problem with Irok's site from a
-  problem with this launcher.
+  normal browser window. That tells you whether it's Irok's site or this launcher.
 
 ## Building
 
-Requires only Windows. No Visual Studio, no packages.
+Needs only Windows. No Visual Studio, no packages.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\build.ps1

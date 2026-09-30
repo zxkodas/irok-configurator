@@ -16,7 +16,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build
         shell: pwsh
@@ -37,7 +37,7 @@ jobs:
           Write-Host "published sha256: $hash"
 
       - name: Publish release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             IrokConfigurator-${{ github.ref_name }}.zip

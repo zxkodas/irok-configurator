@@ -17,7 +17,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build
         # Explicit Bypass because the runner's execution policy is not ours to
@@ -52,7 +52,7 @@ jobs:
           Write-Host "smoke test passed"
 
       - name: Upload exe
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: IrokConfigurator
           path: dist/IrokConfigurator.exe

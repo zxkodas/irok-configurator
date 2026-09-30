@@ -44,7 +44,7 @@ looks. You can change the browser order, or turn the separate profile off, in
 I use Firefox, and sadly, Irok's software doesn't support it. It reaches your keyboard over **WebHID**, an API that
 only Chromium browsers implement, so it can't run in Firefox. Every time I wanted
 to switch a profile, the routine was: open Chrome, navigate, make the change, close
-it again. A few times a day, and it added up. I wanted it to behave like a normal app, so I made one.
+it again. A few times a day, and it added up. I wanted it to behave like a normal app so I woudln't need to open another browser, so I made one.
 
 If you're already on a compatible browser, this saves fewer clicks than it did for
 me, but it makes you feel the software more integrated to your system (without it necesarrily being)

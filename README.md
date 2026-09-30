@@ -18,7 +18,7 @@ A launcher for the [Irok web software](https://hid.irok.cn).
 
 ## What it does
 
-Like a most peripheral brands now, Irok ships a single web-based option instead
+Like most peripheral brands now, Irok ships a single web-based option instead
 of an installable program. That saves resources and is practical compared to an
 installer, but it costs you in the day-to-day: to adjust something you open a
 browser, find the page, connect your keyboard, and change what you want to change

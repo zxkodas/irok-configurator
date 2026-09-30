@@ -25,12 +25,13 @@ your keyboard — that all still happens on Irok's site.
 
 ### Why I made it
 
-I use Firefox, and the Irok software needs a browser feature that Firefox doesn't
-have, so for me every change meant opening a second browser, navigating, and
-closing it again. Switching profiles a few times a day, that adds up.
+I use Firefox. The Irok web software talks to the keyboard through **WebHID**, a
+browser API that only Chromium-based browsers implement, so I couldn't use it
+where I spend my time. Every profile switch meant opening Chrome, navigating, and
+closing it again.
 
-That's specific to my setup. If you already have a compatible browser open and
-remember the address, this saves you a handful of clicks.
+For anyone with a compatible browser already open, this saves fewer clicks. It's
+mainly here so I could stop doing that dance.
 
 ## What you get
 

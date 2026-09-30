@@ -26,7 +26,10 @@ jobs:
         run: powershell -ExecutionPolicy Bypass -File ./build.ps1
 
       - name: Smoke test
-        shell: pwsh
+        # Windows PowerShell 5.1, matching the Build step, so this runs on the
+        # same interpreter it was tested on. Not pwsh: ReflectionOnlyLoadFrom
+        # does not exist on .NET Core.
+        shell: powershell
         run: |
           $exe = 'dist\IrokConfigurator.exe'
           if (-not (Test-Path $exe)) { throw 'build produced no exe' }
@@ -37,10 +40,14 @@ jobs:
 
           # The embedded icon resource must have made it into the assembly,
           # otherwise a fresh install has no icon to fall back on.
-          Add-Type -AssemblyName System.Reflection
-          $asm = [System.Reflection.Assembly]::ReflectionOnlyLoadFrom((Resolve-Path $exe))
+          # LoadFrom rather than ReflectionOnlyLoadFrom: the latter is
+          # .NET Framework only and throws on PowerShell 7.
+          $asm = [System.Reflection.Assembly]::LoadFrom((Resolve-Path $exe))
           $names = $asm.GetManifestResourceNames()
           if ($names -notcontains 'irok.ico') { throw "irok.ico not embedded, found: $($names -join ', ')" }
+          $stream = $asm.GetManifestResourceStream('irok.ico')
+          if ($stream.Length -lt 100) { throw "embedded icon is only $($stream.Length) bytes" }
+          $stream.Close()
 
           Write-Host "smoke test passed"
 

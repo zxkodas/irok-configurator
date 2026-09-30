@@ -62,7 +62,7 @@ def main():
     img.paste(icon_big, (64, 56), icon_big)
 
     d.text((168, 60), "Irok Configurator", font=f_title, fill=INK)
-    d.text((170, 126), "Direct access to the Irok web software.", font=f_tag, fill=MUTED)
+    d.text((170, 126), "The Irok web software, without the browser.", font=f_tag, fill=MUTED)
 
     # three quiet feature ticks, no arrows, no numbered steps
     f_tick = font("segoeui.ttf", 15)

@@ -14,24 +14,28 @@
 
 # Irok Configurator
 
-Direct access to the [Irok web software](https://hid.irok.cn).
+An app for reaching the [Irok web software](https://hid.irok.cn) directly,
+without going through a browser.
 
-The Irok driver lives in a browser tab, so reaching it means opening a browser and
-finding the page. This saves you those steps: one shortcut and the configurator is
-open, in its own window.
+Like a lot of peripheral brands now, Irok ships a single web-based option instead
+of an installable program. That trade is a good one in most ways: nothing to
+install, no background process, no updater nagging you. The cost shows up in the
+day-to-day, though. To change a setting you open a browser, find the page, connect
+your keyboard, and pick the profile you want. Then you do it all again the next
+time, and the next.
+
+It is worth it if you set up once and forget. It is worth less if you switch
+profiles a few times a day, which is what I do, and less again if your everyday
+browser is not a Chromium one.
 
 It only launches. Keyboard settings aren't touched here and nothing is sent to
 your keyboard — that all still happens on Irok's site.
 
 ### Why I made it
 
-I use Firefox. The Irok web software talks to the keyboard through **WebHID**, a
-browser API that only Chromium-based browsers implement, so I couldn't use it
-where I spend my time. Every profile switch meant opening Chrome, navigating, and
-closing it again.
-
-For anyone with a compatible browser already open, this saves fewer clicks. It's
-mainly here so I could stop doing that dance.
+I use Firefox. The Irok web software reaches the keyboard through **WebHID**, an API
+that only Chromium browsers implement, so for me every change meant opening Chrome
+from scratch, navigating, and closing it again.
 
 ## What you get
 

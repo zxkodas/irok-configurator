@@ -14,28 +14,31 @@
 
 # Irok Configurator
 
-An app for reaching the [Irok web software](https://hid.irok.cn) directly,
+An app for accessing the [Irok web software](https://hid.irok.cn) directly,
 without going through a browser.
 
-Like a lot of peripheral brands now, Irok ships a single web-based option instead
-of an installable program. That trade is a good one in most ways: nothing to
-install, no background process, no updater nagging you. The cost shows up in the
-day-to-day, though. To change a setting you open a browser, find the page, connect
-your keyboard, and pick the profile you want. Then you do it all again the next
-time, and the next.
-
-It is worth it if you set up once and forget. It is worth less if you switch
-profiles a few times a day, which is what I do, and less again if your everyday
-browser is not a Chromium one.
+Irok, like many brands now, offers a single web-based option instead of
+installable software. That saves resources and is practical compared to an
+installer, but it can be a nuisance: opening a browser, finding the page, choosing
+your keyboard, switching profiles. More so if you don't use a Chromium-based
+browser, as I don't — the software needs **WebHID**, which Firefox doesn't have.
+If you switch profiles several times a day, like I do, those saved clicks are
+appreciated.
 
 It only launches. Keyboard settings aren't touched here and nothing is sent to
 your keyboard — that all still happens on Irok's site.
 
 ### Why I made it
 
-I use Firefox. The Irok web software reaches the keyboard through **WebHID**, an API
-that only Chromium browsers implement, so for me every change meant opening Chrome
-from scratch, navigating, and closing it again.
+**Before.** Change a profile: open Chrome, find the tab, pick the keyboard, pick
+the profile, apply, then close it again. Three or four times a day, that was the
+routine.
+
+**After.** One shortcut, and the configurator is already open on the keyboard.
+
+It isn't a big saving, and I know it isn't. What I wanted was for the thing to
+feel like an app instead of a detour, because the detour was mine and not
+anyone's.
 
 ## What you get
 

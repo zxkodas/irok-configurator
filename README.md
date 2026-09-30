@@ -14,8 +14,40 @@
 
 # Irok Configurator
 
-A launcher for the [Irok web software](https://hid.irok.cn). It saves you a few
-clicks every time you want to change something on your keyboard.
+A launcher for the [Irok web software](https://hid.irok.cn).
+
+## What it does
+
+Like a lot of peripheral brands now, Irok ships a single web-based option instead
+of an installable program. That saves resources and is practical compared to an
+installer, but it costs you in the day-to-day: to change something you open a
+browser, find the page, connect your keyboard, then pick a profile or adjust a
+setting. This turns that into one shortcut on your Start menu, which opens the
+configurator in a window of its own.
+
+It holds no keyboard settings and never sends anything to your keyboard. Irok's
+site does all of that, and this only gets you there.
+
+### What it runs
+
+There's no interface of its own. When you open it, it looks for a browser you
+already have — Edge, Chrome, Brave, Opera or Vivaldi, in that order — and asks it
+to open the Irok page in a dedicated window, without tabs or an address bar.
+
+It also hands that window its own browser profile, kept in a separate folder.
+That's what keeps extensions like Dark Reader from changing how the configurator
+looks. You can change the browser order, or turn the separate profile off, in
+`config.txt`. See **Options**.
+
+### Why I made it
+
+I use Firefox. The Irok software reaches your keyboard over **WebHID**, an API that
+only Chromium browsers implement, so it can't run in Firefox. Every time I wanted
+to switch a profile, the routine was: open Chrome, navigate, make the change, close
+it again. A few times a day, and it added up.
+
+If you're already on a compatible browser, this saves fewer clicks than it did for
+me. I wanted it to behave like a normal app, so I made one.
 
 ## Install
 
@@ -66,26 +98,6 @@ If you've already built profiles somewhere else, they're still there. Open the
 configurator in that other browser once, use its export function to save them to a
 file, then import that file from the launcher. Everything shows up where you left
 it, and it stays from then on.
-
-## What it does
-
-The Irok software is a web app. Reaching it means opening a browser, finding the
-page, connecting your keyboard and picking a profile. This turns that into a
-shortcut on your Start menu that opens the configurator in a window of its own.
-
-Under the hood it's a launcher and nothing more. It picks a browser you already
-have and gets out of the way. It holds no keyboard settings and never sends
-anything to your keyboard — Irok's site does that part.
-
-### Why I made it
-
-I use Firefox. The Irok software reaches the keyboard over **WebHID**, an API that
-only Chromium browsers implement, so for me it couldn't run in the browser I
-actually use. Every time I wanted to switch a profile, the routine was: open
-Chrome, navigate, change it, close it again. A few times a day, and it added up.
-
-For anyone on a compatible browser, this saves fewer clicks than it did for me.
-It exists because I wanted the thing to behave like an app instead of a detour.
 
 ## Options
 

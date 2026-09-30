@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/hero.png" alt="Irok Configurator launcher" width="100%">
+  <img src="docs/banner.svg" alt="Irok Configurator launcher" width="100%">
 </div>
 
 <div align="center">

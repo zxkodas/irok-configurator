@@ -18,12 +18,12 @@ A launcher for the [Irok web software](https://hid.irok.cn).
 
 ## What it does
 
-Like a lot of peripheral brands now, Irok ships a single web-based option instead
+Like a most peripheral brands now, Irok ships a single web-based option instead
 of an installable program. That saves resources and is practical compared to an
-installer, but it costs you in the day-to-day: to change something you open a
-browser, find the page, connect your keyboard, then pick a profile or adjust a
-setting. This turns that into one shortcut on your Start menu, which opens the
-configurator in a window of its own.
+installer, but it costs you in the day-to-day: to adjust something you open a
+browser, find the page, connect your keyboard, and change what you want to change
+This turns that into one shortcut on your Start menu and your Desktop, which opens the
+configurator in a window of its own. No need to open a new browser tab
 
 It holds no keyboard settings and never sends anything to your keyboard. Irok's
 site does all of that, and this only gets you there.
@@ -41,13 +41,13 @@ looks. You can change the browser order, or turn the separate profile off, in
 
 ### Why I made it
 
-I use Firefox. The Irok software reaches your keyboard over **WebHID**, an API that
+I use Firefox, and sadly, Irok's software doesn't support it. It reaches your keyboard over **WebHID**, an API that
 only Chromium browsers implement, so it can't run in Firefox. Every time I wanted
 to switch a profile, the routine was: open Chrome, navigate, make the change, close
-it again. A few times a day, and it added up.
+it again. A few times a day, and it added up. I wanted it to behave like a normal app, so I made one.
 
 If you're already on a compatible browser, this saves fewer clicks than it did for
-me. I wanted it to behave like a normal app, so I made one.
+me, but it makes you feel the software more integrated to your system (without it necesarrily being)
 
 ## Install
 

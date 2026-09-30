@@ -70,10 +70,15 @@ anyway**.
 
 That warning is expected. Windows shows it for any program that isn't signed with
 a paid certificate, and this one isn't, because signing costs money that a free
-open-source tool doesn't have. Nothing is wrong with the file. If you'd rather
-check before you run it, the release also includes a `.sha256.txt` — compare it
-against the zip and you're looking at the same build that came out of this
-repository.
+open-source tool doesn't have. Nothing is wrong with the file.
+
+The release also includes a `.sha256.txt`, and it's worth knowing what it does and
+doesn't prove. It confirms the file you downloaded is the same one this build
+produced, which rules out a corrupted or tampered download. It does not confirm
+anything on its own: the checksum is published by the same build that produced the
+binary, so if you don't already trust this repository and GitHub, verifying against
+it tells you nothing new. That check only matters if you already had a reason to
+trust the source.
 
 ## Uninstall
 
@@ -133,7 +138,8 @@ and reopen the launcher. Delete the file to go back to the defaults.
 ## If something goes wrong
 
 **The configurator looks broken.** Open `https://hid.irok.cn` in your normal
-browser. If it looks the same there, the problem is on Irok's side, not here.
+browser. If it looks the same there, the problem is on Irok's side rather than
+this launcher.
 
 **The keyboard doesn't show up in the device list.** Unplug it, plug it back into
 a different port, and wait a few seconds. Check that the cable is seated at both

@@ -16,6 +16,8 @@
 
 A launcher for the [Irok web software](https://hid.irok.cn).
 
+Unofficial, and not made by Irok. It only opens their page.
+
 ## What it does
 
 Like most peripheral brands now, Irok ships a single web-based software option
@@ -42,12 +44,16 @@ looks. You can change the browser order, or turn the separate profile off, in
 
 ### Why I made it
 
-I use Firefox, and sadly, Irok's software doesn't support it. It reaches your keyboard over **WebHID**, an API that
-only Chromium browsers implement, so it can't run in Firefox. Every time I wanted
-to switch a profile, the routine was: open Chrome, navigate, make the change, close
-it again. A few times a day, and it added up. I wanted it to behave like a normal app so I wouldn't need to open another browser, so I made one.
+I use Firefox, and sadly, Irok's software doesn't support it. It reaches your
+keyboard over **WebHID**, an API that only Chromium browsers implement, so it
+can't run in Firefox. Every time I wanted to switch a profile, the routine was:
+open Chrome, navigate, make the change, close it again. A few times a day, and it
+added up. I wanted it to behave like a normal app so I wouldn't need to open
+another browser, so I made one.
 
-If you're already on a compatible browser, this saves fewer clicks than it did for me, but it makes the web driver feel more integrated into your system, without it necessarily being so.
+If you're already on a compatible browser, this saves fewer clicks than it did
+for me, but it makes the web driver feel more integrated into your system,
+without it necessarily being so.
 
 ## Install
 
@@ -107,19 +113,46 @@ Settings live in a plain text file:
 %LOCALAPPDATA%\Programs\IrokConfigurator\config.txt
 ```
 
-| Key | Meaning |
-| --- | --- |
-| `Url` | Page to open. Update if Irok moves their site. |
-| `Preferred` | Browser to try first: `edge`, `chrome`, `brave`, `opera`, `vivaldi`. |
-| `SharedProfile` | `true` uses your normal browser profile. Your existing profiles show up without importing, but your extensions then apply to the configurator too. |
-| `DesktopShortcut` | `true` or `false`. |
+| Key | Default | Meaning |
+| --- | --- | --- |
+| `Url` | `https://hid.irok.cn` | Page to open. Update if Irok moves their site. |
+| `Preferred` | `edge` | Browser to try first: `edge`, `chrome`, `brave`, `opera`, `vivaldi`. It falls back to the others if that one isn't installed. |
+| `SharedProfile` | `false` | `true` uses your normal browser profile. Your existing profiles show up without importing, but your extensions then apply to the configurator too. |
+| `DesktopShortcut` | `true` | Whether to keep the shortcut on your desktop. |
 
-## Notes
+To edit it, open the file with Notepad or any text editor, change the value, save,
+and reopen the launcher. Delete the file to go back to the defaults.
 
-- The Irok web driver is **wired only**, and wants the keyboard on its own USB
-  port rather than through an unpowered hub.
-- If the configurator ever looks broken, check whether the same page works in a
-  normal browser window. That tells you whether it's Irok's site or this launcher.
+## Requirements
+
+The Irok web driver is **wired only**. Plug the keyboard into a USB port on its
+own rather than through a hub, since an unpowered hub won't carry enough current
+for it. It also won't appear over Bluetooth.
+
+This is a limitation of Irok's web software, not of this launcher.
+
+## If something goes wrong
+
+**The configurator looks broken.** Open `https://hid.irok.cn` in your normal
+browser. If it looks the same there, the problem is on Irok's side, not here.
+
+**The keyboard doesn't show up in the device list.** Unplug it, plug it back into
+a different port, and wait a few seconds. Check that the cable is seated at both
+ends, and try the port the keyboard came with.
+
+**Your profiles are gone.** They live in the browser that created them, and this
+launcher uses a separate one. See **First launch** for how to bring them over.
+
+**Nothing happens when you click it.** Open `%LOCALAPPDATA%\Programs\IrokConfigurator\IrokConfigurator.log`.
+It records which browser got picked and the exact command line used, which is
+usually enough to see what went wrong.
+
+**It picks the wrong browser.** Set `Preferred` in `config.txt` to the one you
+want. See **Options**.
+
+**Antivirus removed the file.** Some security software removes unsigned programs
+that install themselves. Allow it, or download again and run the uninstall
+command to clean up what's left.
 
 ## Building
 

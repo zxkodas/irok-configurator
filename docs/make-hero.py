@@ -1,14 +1,18 @@
 # Generates docs/hero.png, the banner shown at the top of the README.
 #
-# The key grid follows the physical Irok ND63 MAX: five rows, 15u wide, with the
-# arrow and navigation keys sitting inline at the right of rows 4 and 5 rather
-# than in a separated cluster. That is what makes the keys come out the right
-# size; adding a cluster gap would need ~18.6u and shrink every key.
+# NOTE: docs/hero.png is no longer produced by this script. The banner was
+# redrawn by hand and this file is kept only as a record of the geometry the
+# layout was built from, in case the script is ever needed again. Running it
+# WILL overwrite the current banner, so rename the output first if you try.
 #
-# Keycaps are drawn empty, with no legends, and ignore the board's own styling.
-#
-# Rerun after replacing assets/irok.ico:
-#   python docs\make-hero.py
+# What this version got right and is worth remembering if it is revived:
+#   - The board is the ND63 MAX, a 60% layout: five rows, 15u wide, with the
+#     arrows and Del inline at the right of rows 4 and 5. There is no separated
+#     nav cluster; inventing one forces the board to 18.6u and shrinks the caps.
+#   - Right shift is 0.75u so row 4 lands on 15u. All five rows verified at 15u.
+#   - Key height derives from the unit, so caps come out as wide as they are tall.
+#   - No legends on the keycaps, and no accent colour inside the keyboard area.
+#     The brand orange belongs on the icon and the bullet dots only.
 
 import os
 from PIL import Image, ImageDraw, ImageFont
@@ -151,6 +155,9 @@ def main():
     img.save(OUT, "PNG", optimize=True)
     print("wrote", OUT, img.size)
     print("key unit %.1fpx, cap %.1f x %.1f" % (u, u - gap, kh - gap))
+    print()
+    print("WARNING: this overwrote the hand-drawn banner. Restore it with:")
+    print("  git checkout -- docs/hero.png")
 
 
 if __name__ == "__main__":

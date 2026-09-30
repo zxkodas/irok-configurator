@@ -80,8 +80,14 @@ Open Windows Settings, go to **Apps**, and find **Irok Configurator** in the lis
 On Windows 11 it's under *Installed apps*; on Windows 10 it's *Apps & features*.
 Click it and choose Uninstall.
 
-It removes the launcher, its icon, and its separate browser profile. It leaves
-your regular browser profile completely untouched.
+It removes the launcher, its icon, and its separate browser profile. Your regular
+browser profile is left completely untouched.
+
+**Export your profiles before uninstalling.** Keyboard profiles are stored in the
+browser profile, which is the folder this removes, so anything you created in the
+configurator goes with it. Open the configurator, use its export function, and
+save the file somewhere outside the launcher before you uninstall. You can import
+it again later from any browser.
 
 If you'd rather do it from a terminal, the launcher cleans up after itself:
 
@@ -141,7 +147,9 @@ a different port, and wait a few seconds. Check that the cable is seated at both
 ends, and try the port the keyboard came with.
 
 **Your profiles are gone.** They live in the browser that created them, and this
-launcher uses a separate one. See **First launch** for how to bring them over.
+launcher uses a separate one. See **First launch** for how to bring them over. If
+you already uninstalled, they're gone for good — export them next time before
+removing anything.
 
 **Nothing happens when you click it.** Open `%LOCALAPPDATA%\Programs\IrokConfigurator\IrokConfigurator.log`.
 It records which browser got picked and the exact command line used, which is

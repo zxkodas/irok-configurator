@@ -16,21 +16,13 @@
 
 A launcher for the [Irok web software](https://hid.irok.cn).
 
-The Irok driver is a website rather than a program, so changing a setting means
-opening a browser and finding the address. This puts it in your Start menu
-instead, and opens it in its own window.
+Irok's driver is a web app, and it needs a browser feature Firefox doesn't have,
+so using it means switching browsers every time you want to change a setting. I
+wanted it to behave like a normal app, so I made one: it opens the configurator
+from your Start menu, in its own window.
 
-## Why
-
-The Irok software needs a browser feature that Firefox doesn't have, so using it
-means switching to a different browser every time. If you switch profiles often,
-that's a small annoyance that adds up.
-
-I wanted it to behave like a normal app on my machine, so I made one.
-
-This is a **launcher**, not a driver. It contains no keyboard settings and never
-sends data to your keyboard. It opens Irok's own web software and gets out of the
-way.
+It only launches. There are no keyboard settings here and nothing is ever sent to
+your keyboard — that still all happens on Irok's site.
 
 ## What you get
 

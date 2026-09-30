@@ -36,10 +36,6 @@ check before you run it, the release also includes a `.sha256.txt` — compare i
 against the zip and you're looking at the same build that came out of this
 repository.
 
-If clicking the file does nothing at all, your antivirus may have removed it. Some
-security software flags unsigned executables that install themselves. Allow it, or
-use the `.exe --uninstall` trick below to clean up.
-
 ## Uninstall
 
 Open Windows Settings, go to **Apps**, and find **Irok Configurator** in the list.

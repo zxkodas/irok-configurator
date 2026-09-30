@@ -62,6 +62,15 @@ You'll get the browser's welcome screen. Dismiss it.
 Then it asks you to pick your keyboard. Do that. The browser remembers the choice
 from then on, so you only see this once.
 
+**You won't have your old profiles.** Profiles live in the browser that created
+them, and this launcher runs the configurator in its own profile so extensions
+can't get in the way. A fresh profile starts empty.
+
+If you've already built profiles somewhere else, they're still there. Open the
+configurator in that other browser once, use its export function to save them to a
+file, then import that file from the launcher. Everything shows up where you left
+it, and it stays from then on.
+
 ## What it does
 
 - Adds an entry to your Start menu and desktop
@@ -87,7 +96,7 @@ Settings live in a plain text file:
 | --- | --- |
 | `Url` | Page to open. Update if Irok moves their site. |
 | `Preferred` | Browser to try first: `edge`, `chrome`, `brave`, `opera`, `vivaldi`. |
-| `SharedProfile` | `true` uses your normal browser profile. Your extensions then apply to the configurator. |
+| `SharedProfile` | `true` uses your normal browser profile. Your existing profiles show up without importing, but your extensions then apply to the configurator too. |
 | `DesktopShortcut` | `true` or `false`. |
 
 ## Notes

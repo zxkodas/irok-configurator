@@ -60,8 +60,9 @@ without it necessarily being so.
 Download the `.zip` from the [latest release](https://github.com/zxkodas/irok-configurator/releases/latest)
 and extract it. You'll get a single file called `IrokConfigurator.exe`.
 
-Double-click it. That's the whole installation. It copies itself into your user
-folder, adds a Start menu entry, and opens the configurator.
+Double-click it. That's the whole installation. It copies itself into
+`%LOCALAPPDATA%\Programs\IrokConfigurator`, adds a Start menu entry, and opens
+the configurator.
 
 **Windows will probably warn you.** You'll get a blue window saying *Windows
 protected your PC* and offering *More info*. Click **More info**, then **Run

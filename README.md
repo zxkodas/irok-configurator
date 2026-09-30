@@ -21,8 +21,8 @@ Unofficial, and not made by Irok. It only opens their page.
 ## Contents
 
 - [What it does](#what-it-does)
-  - [What it runs](#what-it-runs)
-  - [Why I made it](#why-i-made-it)
+- [What it runs](#what-it-runs)
+- [Why I made it](#why-i-made-it)
 - [Install](#install)
 - [Uninstall](#uninstall)
 - [First launch](#first-launch)

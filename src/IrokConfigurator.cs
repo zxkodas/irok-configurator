@@ -51,6 +51,9 @@ namespace IrokConfigurator
         private static string IconPath { get { return Path.Combine(InstallDir, EmbeddedIcon); } }
         private static string ConfigPath { get { return Path.Combine(InstallDir, "config.txt"); } }
         private static string LogPath { get { return Path.Combine(InstallDir, "IrokConfigurator.log"); } }
+        // Presence of this file means "an uninstall is pending". Install removes it
+        // on its first act, which cancels any queued delete. See UninstallCommand.
+        private static string UninstMarkerPath { get { return Path.Combine(InstallDir, ".uninstalling"); } }
         private static string ExePath { get { return Path.Combine(InstallDir, ExeFile); } }
 
         private static string StartMenuLink
@@ -113,6 +116,15 @@ namespace IrokConfigurator
         {
             Directory.CreateDirectory(InstallDir);
             Log("install -> " + InstallDir);
+
+            // Cancel any uninstall that was queued but has not finished yet. Its
+            // background rmdir loop checks for this marker and bails if it is gone,
+            // so a reinstall cannot have its files deleted out from under it.
+            if (File.Exists(UninstMarkerPath))
+            {
+                try { File.Delete(UninstMarkerPath); Log("cancelled a pending uninstall"); }
+                catch (Exception ex) { Log("could not clear uninstall marker: " + ex.Message); }
+            }
 
             // 1. place a copy of ourselves in the install dir, so the shortcut
             //    survives the user moving or deleting the original download
@@ -379,6 +391,12 @@ namespace IrokConfigurator
             try { Registry.CurrentUser.DeleteSubKeyTree(UninstKey, false); }
             catch (Exception ex) { Log("registry delete failed: " + ex.Message); }
 
+            // Mark the deletion as pending before anything else, so the background
+            // rmdir loop that starts below knows it is allowed to run, and so a
+            // reinstall that races it can cancel it by deleting this file.
+            try { File.WriteAllText(UninstMarkerPath, DateTime.Now.ToString("o")); }
+            catch (Exception ex) { Log("could not write uninstall marker: " + ex.Message); }
+
             // The configurator window is a whole browser process tree holding our
             // profile open, so the rmdir below fails without this. Only processes
             // whose command line contains OUR profile path are matched, which never
@@ -424,13 +442,24 @@ namespace IrokConfigurator
 
         private static string UninstallCommand(string dir)
         {
+            // The retry loop can outlive this process by up to a minute, which is
+            // long enough for the user to reinstall. A plain rmdir loop would then
+            // delete the files the fresh install just wrote, leaving a half-built
+            // install with no exe and no icon.
+            //
+            // The guard: this loop only runs while the uninstall marker is still
+            // there. Install() deletes the marker on its first act, so a reinstall
+            // stops the pending deletion before it can touch anything.
             StringBuilder sb = new StringBuilder("/c ");
+            string stop = "if not exist \"" + UninstMarkerPath + "\" exit & ";
+            sb.Append(stop);
             // 30 attempts, ~2s apart: the browser tree can take a while to let go
             // of its profile handles. Each rmdir clears what it can, so partial
             // progress is kept across attempts.
             for (int i = 0; i < 30; i++)
             {
-                sb.Append("ping -n 3 127.0.0.1 >nul & rmdir /s /q \"").Append(dir).Append("\" 2>nul & ");
+                sb.Append("ping -n 3 127.0.0.1 >nul & if not exist \"").Append(UninstMarkerPath)
+                  .Append("\" exit & rmdir /s /q \"").Append(dir).Append("\" 2>nul & ");
             }
             return sb.ToString();
         }

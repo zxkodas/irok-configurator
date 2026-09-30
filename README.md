@@ -1,90 +1,103 @@
 <div align="center">
-  <img src="docs/hero.png" alt="Press Win, type Irok, and the configurator opens" width="100%">
+  <img src="docs/hero.png" alt="Irok Configurator launcher" width="100%">
+</div>
+
+<div align="center">
+
+[![Release](https://img.shields.io/github/v/release/zxkodas/irok-configurator?style=flat-square&label=release&color=ff6b4a)](https://github.com/zxkodas/irok-configurator/releases)
+[![CI](https://github.com/zxkodas/irok-configurator/actions/workflows/build.yml/badge.svg)](https://github.com/zxkodas/irok-configurator/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![Windows 10/11](https://img.shields.io/badge/windows-10%20%7C%2011-0078d6?style=flat-square&logo=windows)](https://learn.microsoft.com/en-us/windows/release-health/windows-11-release-information)
+[![Size](https://img.shields.io/badge/size-26%20KB-success?style=flat-square)](https://github.com/zxkodas/irok-configurator/releases)
+
 </div>
 
 # Irok Configurator
 
-**A launcher for the Irok web software.**
+A launcher for the [Irok web software](https://hid.irok.cn).
 
-The Irok driver is a website, not a program. That works fine, but it means opening
-a browser and finding the address every single time you want to change a setting.
+The Irok driver is a website rather than a program, so changing a setting means
+opening a browser and finding the address. This puts it in your Start menu
+instead, and opens it in its own window.
 
-This puts it in your Start menu. Press the Windows key, type **Irok**, press Enter.
-That's it.
+## Why
 
-## Why I made it
+The Irok software needs a browser feature that Firefox doesn't have, so using it
+means switching to a different browser every time. If you switch profiles often,
+that's a small annoyance that adds up.
 
-I use Firefox. The Irok software needs something Firefox doesn't have, so every
-change meant opening a browser I don't otherwise use, navigating, and closing it
-again. If you switch keyboard profiles a few times a day, that friction adds up
-fast.
+I wanted it to behave like a normal app on my machine, so I made one.
 
-I wanted the same thing I already had on other devices: an app I can launch like
-any other. So I made one.
+This is a **launcher**, not a driver. It contains no keyboard settings and never
+sends data to your keyboard. It opens Irok's own web software and gets out of the
+way.
 
-It's a **launcher**, not a driver. It doesn't talk to your keyboard and it has no
-keyboard settings of its own. It opens Irok's own web software, and everything
-happens there exactly as it always has. If Irok's site changes, this just opens
-the new site.
+## What you get
 
-## What it does
-
-- **One entry in your Start menu.** No browser tab, no typing a URL.
-- **Opens in its own window.** No tabs, no address bar, no extensions loading.
-- **Uses a browser you already have.** Prefers Edge, falls back to Chrome, Brave,
-  Opera or Vivaldi. Nothing extra to install.
-- **Keeps extensions out of the way.** The configurator runs in its own profile,
-  so things like Dark Reader can't alter the interface you're adjusting.
-- **Installs and uninstalls cleanly.** One small file, no admin rights, nothing
-  running in the background, no tracking.
+- A Start menu and desktop entry
+- The configurator in its own window, with no tabs or address bar
+- Works with Edge, Chrome, Brave, Opera or Vivaldi, whichever you already have
+- A separate browser profile, so extensions like Dark Reader don't interfere with
+  the interface
+- One file, no installer, no admin rights, no background process, no analytics
 
 ## Install
 
-Download `IrokConfigurator-v1.0.0.zip` from the
+Grab `IrokConfigurator-v1.0.0.zip` from the
 [releases page](https://github.com/zxkodas/irok-configurator/releases), extract
-`IrokConfigurator.exe` and run it.
+`IrokConfigurator.exe`, run it.
 
-**The first time**, the browser shows its welcome screen and asks you to pick your
-keyboard. Dismiss the first, select your keyboard in the second. The browser
-remembers that, so it never asks again. After that it's one click, every time.
+On first launch the browser shows its welcome screen, then asks you to select your
+keyboard. Dismiss the first and pick your keyboard in the second. The browser
+remembers the choice, so it won't ask again.
 
-To remove it: *Settings → Apps → Installed apps → Irok Configurator*, or run
+To remove it: **Settings → Apps → Installed apps → Irok Configurator**, or run
 `IrokConfigurator.exe --uninstall`.
 
-### "Windows protected your PC"
+<details>
+<summary><b>You'll see "Windows protected your PC"</b></summary>
 
-You'll see this. The file isn't signed, so SmartScreen warns about any program
-that isn't. Click **More info → Run anyway**.
+The executable isn't code-signed, so SmartScreen warns about any unsigned
+program. Choose **More info → Run anyway**.
 
-It's a property of being unsigned, not a sign something's wrong. If you want to
-confirm the file is the one from this page, the release includes a `.sha256.txt`
-generated by this repository's own build from the source in the tag.
+Being unsigned is the only reason for the warning. To confirm the file matches
+this repository, the release includes a `.sha256.txt` produced by this repo's own
+build from the tagged source.
+</details>
 
 ## Options
 
-Everything's in a plain text file, no config UI needed:
+Settings live in a plain text file:
 
 ```
 %LOCALAPPDATA%\Programs\IrokConfigurator\config.txt
 ```
 
-| Setting | What it does |
+| Key | Meaning |
 | --- | --- |
-| `Url` | Which page to open. Change it if Irok moves their site. |
-| `Preferred` | Which browser to try first: `edge`, `chrome`, `brave`, `opera`, `vivaldi`. |
-| `SharedProfile` | `true` to use your normal browser profile. Convenient if you're already signed in, but your extensions will then affect the configurator. |
+| `Url` | Page to open. Update if Irok moves their site. |
+| `Preferred` | Browser to try first: `edge`, `chrome`, `brave`, `opera`, `vivaldi`. |
+| `SharedProfile` | `true` uses your normal browser profile. Your extensions then apply to the configurator. |
 | `DesktopShortcut` | `true` or `false`. |
 
 ## Notes
 
-- The Irok web driver works over **USB, wired only**. It needs the keyboard on
-  its own port, not through an unpowered hub.
-- If the configurator ever looks broken, it's almost always Irok's site being
-  unhappy rather than this launcher. The site works fine in a normal browser
-  window, which is the quickest way to tell which side is at fault.
+- The Irok web driver is **wired only**, and needs the keyboard on its own USB
+  port rather than through an unpowered hub.
+- If the configurator ever looks broken, check whether the same page works in a
+  normal browser window. That distinguishes a problem with Irok's site from a
+  problem with this launcher.
+
+## Building
+
+Requires only Windows. No Visual Studio, no packages.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
 
 ## Legal
 
 Unofficial community project. Not affiliated with, endorsed by, or supported by
-Irok or KBDfans. All trademarks belong to their owners. The configurator is
-served by Irok at [hid.irok.cn](https://hid.irok.cn); this project only opens it.
+Irok or KBDfans. All trademarks belong to their owners. The configurator is served
+by Irok at [hid.irok.cn](https://hid.irok.cn); this project only opens it.

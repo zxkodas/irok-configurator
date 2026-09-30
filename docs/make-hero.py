@@ -62,11 +62,11 @@ def main():
     img.paste(icon_big, (64, 56), icon_big)
 
     d.text((168, 60), "Irok Configurator", font=f_title, fill=INK)
-    d.text((170, 126), "The Irok web software, from your Start menu.", font=f_tag, fill=MUTED)
+    d.text((170, 126), "Direct access to the Irok web software.", font=f_tag, fill=MUTED)
 
     # three quiet feature ticks, no arrows, no numbered steps
     f_tick = font("segoeui.ttf", 15)
-    ticks = ["One shortcut, no browser tab", "Opens in its own window", "Nothing to configure"]
+    ticks = ["One shortcut to the configurator", "Opens in its own window", "Nothing to configure"]
     ty = 176
     for t in ticks:
         d.ellipse((170, ty + 6, 170 + 7, ty + 13), fill=ORANGE)
